@@ -4,20 +4,22 @@ int main(){
     
     //carta1
     char Estado1; 
-    char Codigo1[6]; //[6] maximo de caracteres sendo 5 as entradas e 1 null, valendo para Cidade tbm
-    char Cidade1[20]; 
-    int Populacao1;
+    char Codigo1[13]; //[13] maximo de caracteres sendo 12 as entradas e 1 null, logica valendo para cidade tbm.
+    char Cidade1[30]; 
+    unsigned long int Populacao1;
     float Area1;
     float PIB1;
     int Pontos_Turisticos1;
+     
     //carta2
     char Estado2;
-    char Codigo2[6];
-    char Cidade2[20];
-    int Populacao2;
+    char Codigo2[13];
+    char Cidade2[30];
+    unsigned long int Populacao2;
     float Area2;
     float PIB2;
     int Pontos_Turisticos2;
+    
 
     //print trunfo
     printf("Seja bem vindo ao Super Trunfo\n");
@@ -29,19 +31,19 @@ int main(){
     printf("Estado (A-H): ");
     scanf(" %c", &Estado1);//espaço deixado no começo dos parenteses para anular linha nula criada pela terminação do input sendo Enter, tbm se aplica a carta 2
 
-    printf("Código em 5 caracteres: ");
-    scanf("%5s", Codigo1);
+    printf("Código em até 12 caracteres: ");
+    scanf("%12s", Codigo1);
     
     printf("Cidade: ");
-    scanf("%19s", Cidade1);
+    scanf(" %[^\n]", Cidade1);//%[^\n] permiti haver espaços entre strings
 
     printf("População: ");
-    scanf("%d", &Populacao1);
+    scanf("%lu", &Populacao1);
 
     printf("Área em km²: ");
     scanf("%f", &Area1);
 
-    printf("PIB em reais: ");
+    printf("PIB em bilhoes de reais: ");
     scanf("%f", &PIB1);
 
     printf("Número de pontos turísticos: ");
@@ -53,42 +55,77 @@ int main(){
     printf("Estado (A-H): ");
     scanf(" %c", &Estado2);
 
-    printf("Código em 5 caracteres: ");
-    scanf("%5s", Codigo2);
+    printf("Código em até 12 caracteres: ");
+    scanf("%12s", Codigo2);
     
     printf("Cidade: ");
-    scanf("%19s", Cidade2);
+    scanf(" %[^\n]", Cidade2);
 
     printf("População: ");
-    scanf("%d", &Populacao2);
+    scanf("%lu", &Populacao2);
 
     printf("Área em km²: ");
     scanf("%f", &Area2);
 
-    printf("PIB em reais: ");
+    printf("PIB em bilhoes de reais: ");
     scanf("%f", &PIB2);
 
     printf("Número de pontos turísticos: ");
     scanf("%d", &Pontos_Turisticos2);
+    
+    //calculos de densidade populacional e Pib per Capita das cartas 1 e 2 
+    //Carta 1 
+    float Densidadepopu1 =(float) Populacao1 / Area1; //casting por (float), logica se aplicando aos outros tbm
+    float PibCapita1 = PIB1 / (float) Populacao1; 
+    //Carta2
+    float Densidadepopu2 = (float) Populacao2 / Area2;
+    float PibCapita2 = PIB2 / (float) Populacao2;
 
     //Saidas dos dados inseridos das cartas 1 e 2 
+    //Carta 1
     printf("Dados da Carta 1:\n");
     printf("Estado: %c\n", Estado1);
     printf("Código: %s\n", Codigo1);
     printf("Cidade: %s\n", Cidade1);
-    printf("População: %d\n", Populacao1);
-    printf("Área: %.2f km²\n", Area1); //%.2f serve para exibição de duas casas decimais para ficar mais elegivel se aplicando tbm ao PIB
-    printf("PIB em reais: %.2f de reais\n", PIB1); 
+    printf("População: %lu\n", Populacao1);
+    printf("Área: %.2f km²\n", Area1); //%.2f serve para exibição de duas casas decimais para ficar mais elegivel, logica se aplicando aos outros tbm seu uso
+    printf("PIB em bilhoes de reais: %.2f de reais\n", PIB1); 
     printf("Número de pontos turísticos: %d\n", Pontos_Turisticos1);
-
+    printf("Densidade Populacional: %.2f hab/km²\n", Densidadepopu1);
+    printf("PIB per Capita: %.2f\n", PibCapita1);
+    //Carta2
     printf("Dados da Carta 2:\n");
     printf("Estado: %c\n", Estado2);
     printf("Código: %s\n", Codigo2);
     printf("Cidade: %s\n", Cidade2);
-    printf("População: %d\n", Populacao2);
+    printf("População: %lu\n", Populacao2);
     printf("Área: %.2f km²\n", Area2); 
-    printf("PIB em reais: %.2f de reais\n", PIB2);
+    printf("PIB em bilhoes de reais: %.2f de reais\n", PIB2);
     printf("Número de pontos turísticos: %d\n", Pontos_Turisticos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", Densidadepopu2);
+    printf("PIB per Capita: %.2f\n", PibCapita2);
 
+    //Calculo de variaveis para Super Poder 
+    float Super_Poder1 = (float) Populacao1 + (float) Area1 + (float) PIB1 + (float) Pontos_Turisticos1 + (float) PibCapita1 + (1.0f / Densidadepopu1); //(1.0f/ Demsidadepopu) priorizar para calcular primeiro se aplicando ao outro tbm
+    float Super_Poder2 = (float) Populacao2 + (float) Area2 + (float) PIB2 + (float) Pontos_Turisticos2 + (float) PibCapita2 + (1.0f / Densidadepopu2);
+
+    //Comparações logica
+    int Compa_Populacao = (Populacao1 > Populacao2) ? 1:0; //O operador "?" vai retornar 1 se for verdadeiro ou se for falso 0 depois do ":", isso se aplica aos outros;
+    int Compa_Area = (Area1 > Area2) ? 1:0;
+    int Compa_Pib = (PIB1 > PIB2) ? 1:0; 
+    int Compa_PontTuri = (Pontos_Turisticos1 > Pontos_Turisticos2) ? 1:0;
+    int Compa_Densinver = (Densidadepopu1 < Densidadepopu2) ? 1:0; //Densidade menor vence
+    int Compa_Pibcapi = (PibCapita1 > PibCapita2) ? 1 : 0;
+    int Compa_Super = (Super_Poder1 > Super_Poder2) ? 1 : 0;
+    
+    //Saidas das comparações entre as cartas
+    printf("\nComparação de Cartas:\n");
+    printf("População: Carta %d venceu %d\n",Compa_Populacao ? 1 : 2, Compa_Populacao ); //Se a variavel foi verdadeira ou seja 1 ele vai printar o numero da carta 1 e se for falso ou seja 0 vai printar numero da carta 2, isso é levando em conta as comparações pela estrutura logica feita anteriormente e isso se aplica as outras saidas.
+    printf("Área: Carta %d venceu %d\n", Compa_Area ? 1 : 2,Compa_Area );
+    printf("PIB: Carta %d venceu %d\n", Compa_Pib ? 1 : 2, Compa_Pib);
+    printf("Pontos Turísticos: Carta %d venceu %d\n", Compa_PontTuri ? 1 : 2,Compa_PontTuri);
+    printf("Densidade Populacional: Carta %d venceu %d\n", Compa_Densinver ? 1 : 2,Compa_Densinver);
+    printf("PIB per Capita: Carta %d venceu %d\n", Compa_Pibcapi ? 1 : 2, Compa_Pibcapi);
+    printf("Super Poder: Carta %d venceu %d\n", Compa_Super ? 1 : 2, Compa_Super);
     return 0;
 }
