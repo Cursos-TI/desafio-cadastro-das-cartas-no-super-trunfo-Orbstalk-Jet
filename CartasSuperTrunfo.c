@@ -6,7 +6,7 @@ int main(){
     char Estado1; 
     char Codigo1[13]; //[13] maximo de caracteres sendo 12 as entradas e 1 null, logica valendo para cidade tbm.
     char Cidade1[30]; 
-    unsigned long int Populacao1;
+    unsigned long int Populacao1; // unsigned long int para permitir maior armazenamento de tamanho
     float Area1;
     float PIB1;
     int Pontos_Turisticos1;
@@ -20,11 +20,10 @@ int main(){
     float PIB2;
     int Pontos_Turisticos2;
     
-
-    //print trunfo
+    //Orientações ao usuário
     printf("Seja bem vindo ao Super Trunfo\n");
-    printf("Por favor insira os dados de suas cartas\n");
-
+    printf("Por favor insira os dados de suas cartas para serem exibidas e comparadas\n");
+    
     //Inputs da Carta 1 
     printf("Carta1\n");
 
@@ -81,7 +80,7 @@ int main(){
     float Densidadepopu2 = (float) Populacao2 / Area2;
     float PibCapita2 = PIB2 / (float) Populacao2;
 
-    //Saidas dos dados inseridos das cartas 1 e 2 
+    //Saidas dos dados inseridos das cartas 1 e 2 para o usuário
     //Carta 1
     printf("Dados da Carta 1:\n");
     printf("Estado: %c\n", Estado1);
@@ -110,7 +109,7 @@ int main(){
     float Super_Poder2 = (float) Populacao2 + (float) Area2 + (float) PIB2 + (float) Pontos_Turisticos2 + (float) PibCapita2 + (1.0f / Densidadepopu2);
 
     //Comparações logica
-    int Compa_Populacao = (Populacao1 > Populacao2) ? 1:0; //O operador "?" vai retornar 1 se for verdadeiro ou se for falso 0 depois do ":", isso se aplica aos outros;
+    int Compa_Populacao = (Populacao1 > Populacao2) ? 1:0; //O operador "?" vai verificar e retornar 1 se for verdadeiro ou se for falso 0 depois do ":", isso se aplica aos outros;
     int Compa_Area = (Area1 > Area2) ? 1:0;
     int Compa_Pib = (PIB1 > PIB2) ? 1:0; 
     int Compa_PontTuri = (Pontos_Turisticos1 > Pontos_Turisticos2) ? 1:0;
@@ -118,7 +117,7 @@ int main(){
     int Compa_Pibcapi = (PibCapita1 > PibCapita2) ? 1 : 0;
     int Compa_Super = (Super_Poder1 > Super_Poder2) ? 1 : 0;
     
-    //Saidas das comparações entre as cartas
+    //Saidas das comparações entre as cartas para o usuário
     printf("\nComparação de Cartas:\n");
     printf("População: Carta %d venceu %d\n",Compa_Populacao ? 1 : 2, Compa_Populacao ); //Se a variavel foi verdadeira ou seja 1 ele vai printar o numero da carta 1 e se for falso ou seja 0 vai printar numero da carta 2, isso é levando em conta as comparações pela estrutura logica feita anteriormente e isso se aplica as outras saidas.
     printf("Área: Carta %d venceu %d\n", Compa_Area ? 1 : 2,Compa_Area );
