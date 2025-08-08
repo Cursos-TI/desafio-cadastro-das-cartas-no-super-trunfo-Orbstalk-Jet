@@ -114,17 +114,17 @@ int main(){
     int Compa_Pib = (PIB1 > PIB2) ? 1:0; 
     int Compa_PontTuri = (Pontos_Turisticos1 > Pontos_Turisticos2) ? 1:0;
     int Compa_Densinver = (Densidadepopu1 < Densidadepopu2) ? 1:0; //Densidade menor vence
-    int Compa_Pibcapi = (PibCapita1 > PibCapita2) ? 1 : 0;
-    int Compa_Super = (Super_Poder1 > Super_Poder2) ? 1 : 0;
+    int Compa_Pibcapi = (PibCapita1 > PibCapita2) ? 1:0;
+    int Compa_Super = (Super_Poder1 > Super_Poder2) ? 1:0;
     
     //Saidas das comparações entre as cartas para o usuário
     printf("\nComparação de Cartas:\n");
-    printf("População: Carta %d venceu %d\n",Compa_Populacao ? 1 : 2, Compa_Populacao ); //Se a variavel foi verdadeira ou seja 1 ele vai printar o numero da carta 1 e se for falso ou seja 0 vai printar numero da carta 2, isso é levando em conta as comparações pela estrutura logica feita anteriormente e isso se aplica as outras saidas.
-    printf("Área: Carta %d venceu %d\n", Compa_Area ? 1 : 2,Compa_Area );
-    printf("PIB: Carta %d venceu %d\n", Compa_Pib ? 1 : 2, Compa_Pib);
-    printf("Pontos Turísticos: Carta %d venceu %d\n", Compa_PontTuri ? 1 : 2,Compa_PontTuri);
-    printf("Densidade Populacional: Carta %d venceu %d\n", Compa_Densinver ? 1 : 2,Compa_Densinver);
-    printf("PIB per Capita: Carta %d venceu %d\n", Compa_Pibcapi ? 1 : 2, Compa_Pibcapi);
-    printf("Super Poder: Carta %d venceu %d\n", Compa_Super ? 1 : 2, Compa_Super);
+    printf("População: Carta %d venceu %d\n",Compa_Populacao ? 1:2, Compa_Populacao ); //Se a variavel foi verdadeira ou seja 1 ele vai printar o numero da carta 1 e se for falso ou seja 0 vai printar numero da carta 2, isso é levando em conta as comparações pela estrutura logica feita anteriormente e isso se aplica as outras saidas.
+    printf("Área: Carta %d venceu %d\n", Compa_Area ? 1:2,Compa_Area );
+    printf("PIB: Carta %d venceu %d\n", Compa_Pib ? 1:2, Compa_Pib);
+    printf("Pontos Turísticos: Carta %d venceu %d\n", Compa_PontTuri ? 1:2,Compa_PontTuri);
+    printf("Densidade Populacional: Carta %d venceu %d\n", Compa_Densinver ? 1:2,Compa_Densinver);
+    printf("PIB per Capita: Carta %d venceu %d\n", Compa_Pibcapi ? 1:2, Compa_Pibcapi);
+    printf("Super Poder: Carta %d venceu %d\n", Compa_Super ? 1:2, Compa_Super);
     return 0;
 }
