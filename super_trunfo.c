@@ -75,10 +75,10 @@ int main(){
     //calculos de densidade populacional e Pib per Capita das cartas 1 e 2 
     //Carta 1 
     float Densidadepopu1 =(float) Populacao1 / Area1; //casting por (float), logica se aplicando aos outros tbm
-    float PibCapita1 = (PIB1 * 1000000000) / (float) Populacao1; //(PIB1 * 1000000000) priorazação do calculo do Pib para converter bilhoes em reais, se aplica aos outros tbm
+    float PibCapita1 = (PIB1 * 1000000000.0f) / (float) Populacao1; //(PIB1 * 1000000000.0f) priorazação do calculo do Pib para converter bilhoes em reais, se aplica aos outros tbm
     //Carta2
     float Densidadepopu2 = (float) Populacao2 / Area2;
-    float PibCapita2 = (PIB2 * 1000000000) / (float) Populacao2;
+    float PibCapita2 = (PIB2 * 1000000000.0f) / (float) Populacao2;
 
     //Saidas dos dados inseridos das cartas 1 e 2 para o usuário
     //Carta 1
