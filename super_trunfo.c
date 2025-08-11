@@ -109,22 +109,23 @@ int main(){
     float Super_Poder2 = (float) Populacao2 + (float) Area2 + (float) PIB2 + (float) Pontos_Turisticos2 + (float) PibCapita2 + (1.0f / Densidadepopu2);
 
     //Comparações logica
-    int Compa_Populacao = (Populacao1 > Populacao2) ? 1:0; //O operador "?" vai verificar e retornar 1 se for verdadeiro ou se for falso 0 depois do ":", isso se aplica aos outros;
-    int Compa_Area = (Area1 > Area2) ? 1:0;
-    int Compa_Pib = (PIB1 > PIB2) ? 1:0; 
-    int Compa_PontTuri = (Pontos_Turisticos1 > Pontos_Turisticos2) ? 1:0;
-    int Compa_Densinver = (Densidadepopu1 < Densidadepopu2) ? 1:0; //Densidade menor vence
-    int Compa_Pibcapi = (PibCapita1 > PibCapita2) ? 1:0;
-    int Compa_Super = (Super_Poder1 > Super_Poder2) ? 1:0;
+    int Compa_Populacao = Populacao1 > Populacao2;//se a Populacao1 for maior em comparação com a Populacao 2 o operador > vai verificar verdadeiro=1 ou falso=1
+    int Compa_Area = Area1 > Area2;
+    int Compa_Pib = PIB1 > PIB2;
+    int Compa_PontTuri = Pontos_Turisticos1 > Pontos_Turisticos2;
+    int Compa_Densinver = Densidadepopu1 < Densidadepopu2; // menor vence
+    int Compa_Pibcapi = PibCapita1 > PibCapita2;
+    int Compa_Super = Super_Poder1 > Super_Poder2;
     
     //Saidas das comparações entre as cartas para o usuário
     printf("\nComparação de Cartas:\n");
-    printf("População: Carta %d venceu %d\n",Compa_Populacao ? 1:2, Compa_Populacao ); //Se a variavel foi verdadeira ou seja 1 ele vai printar o numero da carta 1 e se for falso ou seja 0 vai printar numero da carta 2, isso é levando em conta as comparações pela estrutura logica feita anteriormente e isso se aplica as outras saidas.
-    printf("Área: Carta %d venceu %d\n", Compa_Area ? 1:2,Compa_Area );
-    printf("PIB: Carta %d venceu %d\n", Compa_Pib ? 1:2, Compa_Pib);
-    printf("Pontos Turísticos: Carta %d venceu %d\n", Compa_PontTuri ? 1:2,Compa_PontTuri);
-    printf("Densidade Populacional: Carta %d venceu %d\n", Compa_Densinver ? 1:2,Compa_Densinver);
-    printf("PIB per Capita: Carta %d venceu %d\n", Compa_Pibcapi ? 1:2, Compa_Pibcapi);
-    printf("Super Poder: Carta %d venceu %d\n", Compa_Super ? 1:2, Compa_Super);
+    printf("População: Carta %d venceu %d\n", 2 - Compa_Populacao, Compa_Populacao);//2-Compa_Populacao se a variavel for verdadeira ou seja 1 vai sobrar 1 se for falso que é 0 vai sobrar 2 ou seja a carta 2 venceu
+    printf("Área: Carta %d venceu %d\n", 2 - Compa_Area, Compa_Area);
+    printf("PIB: Carta %d venceu %d\n", 2 - Compa_Pib, Compa_Pib);
+    printf("Pontos Turísticos: Carta %d venceu %d\n", 2 - Compa_PontTuri, Compa_PontTuri);
+    printf("Densidade Populacional: Carta %d venceu %d\n", 2 - Compa_Densinver, Compa_Densinver);
+    printf("PIB per Capita: Carta %d venceu %d\n", 2 - Compa_Pibcapi, Compa_Pibcapi);
+    printf("Super Poder: Carta %d venceu %d\n", 2 - Compa_Super, Compa_Super);
+
     return 0;
 }
